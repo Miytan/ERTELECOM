@@ -1,0 +1,1012 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фрунзик Мкртчян | Справочник радиоинженера</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossкorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0F172A;
+            --bg-soft: #1E293B;
+            --bg-card: #1E293B;
+            --blue: #3B82F6;
+            --blue-soft: #60A5FA;
+            --amber: #F97316;
+            --text: #E2E8F0;
+            --text-dim: #94A3B8;
+            --border: #334155;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, Roboto, sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section { padding: 88px 0; }
+
+        /* ===== Header ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo svg { width: 48px; height: 48px; flex-shrink: 0; }
+        .logo-text { line-height: 1.15; }
+        .logo-text strong {
+            display: block;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+        }
+        .logo-text span {
+            font-size: 12px;
+            color: var(--amber);
+            letter-spacing: 0.3px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 26px;
+            list-style: none;
+        }
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-dim);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--blue-soft); }
+        .burger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .burger span {
+            width: 24px; height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 110px 0 96px;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -200px; right: -150px;
+            width: 520px; height: 520px;
+            background: radial-gradient(circle, rgba(59,130,246,0.25), transparent 70%);
+            filter: blur(20px);
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: -200px; left: -150px;
+            width: 480px; height: 480px;
+            background: radial-gradient(circle, rgba(249,115,22,0.18), transparent 70%);
+            filter: blur(20px);
+        }
+        .hero .container { position: relative; z-index: 1; }
+        .hero .eyebrow {
+            display: inline-block;
+            color: var(--blue-soft);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 60px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            color: #fff;
+        }
+        .hero h1 .accent { color: var(--blue); }
+        .hero p.sub {
+            margin-top: 22px;
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: var(--text-dim);
+            max-width: 620px;
+        }
+        .hero-quote {
+            margin-top: 40px;
+            background: var(--bg-soft);
+            border-left: 4px solid var(--amber);
+            border-radius: 0 14px 14px 0;
+            padding: 22px 26px;
+            max-width: 640px;
+            position: relative;
+        }
+        .hero-quote .q-mark {
+            position: absolute;
+            top: -14px; left: 16px;
+            font-size: 44px;
+            color: var(--amber);
+            opacity: 0.5;
+            font-family: Georgia, serif;
+        }
+        .hero-quote p {
+            font-size: 17px;
+            font-style: italic;
+            color: var(--text);
+        }
+        .hero-quote .by {
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--amber);
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* ===== Section headings ===== */
+        .sec-head { margin-bottom: 44px; }
+        .sec-head .eyebrow {
+            color: var(--blue-soft);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .sec-head h2 {
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 800;
+            color: #fff;
+            margin-top: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        /* ===== Who ===== */
+        .who p {
+            font-size: clamp(18px, 2.6vw, 24px);
+            color: var(--text);
+            max-width: 860px;
+            line-height: 1.5;
+        }
+        .who p .hl { color: var(--blue-soft); font-weight: 600; }
+
+        /* ===== Tasks grid ===== */
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .task-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 26px 24px;
+            transition: transform 0.25s, border-color 0.25s;
+        }
+        .task-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--blue);
+        }
+        .task-icon {
+            width: 52px; height: 52px;
+            border-radius: 12px;
+            background: rgba(59,130,246,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+        }
+        .task-icon svg { width: 28px; height: 28px; stroke: var(--blue); }
+        .task-card h3 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .task-card p {
+            font-size: 14.5px;
+            color: var(--text-dim);
+        }
+
+        /* ===== Skills tabs ===== */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+        .tab-btn {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        .tab-btn.active {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+        }
+        .tab-btn.active.amber {
+            background: var(--amber);
+            border-color: var(--amber);
+        }
+        .skills-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            display: none;
+        }
+        .skills-cols.active { display: grid; }
+        .skill-list {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 30px;
+        }
+        .skill-list h3 {
+            color: #fff;
+            font-size: 19px;
+            margin-bottom: 18px;
+        }
+        .skill-list.hard h3 { color: var(--blue-soft); }
+        .skill-list.soft h3 { color: var(--amber); }
+        .skill-list ul { list-style: none; }
+        .skill-list li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+            color: var(--text);
+        }
+        .skill-list li:last-child { border-bottom: none; }
+        .skill-list li::before {
+            content: "";
+            position: absolute;
+            left: 0; top: 18px;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+        }
+        .skill-list.hard li::before { background: var(--blue); }
+        .skill-list.soft li::before { background: var(--amber); }
+
+        /* ===== ERTH ===== */
+        .erth {
+            background: linear-gradient(135deg, rgba(59,130,246,0.10), rgba(249,115,22,0.06));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 44px 40px;
+        }
+        .erth .badge {
+            display: inline-block;
+            background: var(--amber);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+        }
+        .erth h2 {
+            color: #fff;
+            font-size: clamp(22px, 3.5vw, 30px);
+            max-width: 760px;
+            font-weight: 800;
+        }
+        .erth h2 .hl { color: var(--blue); }
+
+        /* ===== Timeline ===== */
+        .timeline {
+            position: relative;
+            margin-left: 12px;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 14px; top: 6px; bottom: 6px;
+            width: 2px;
+            background: linear-gradient(var(--blue), var(--amber));
+        }
+        .tl-item {
+            position: relative;
+            padding: 0 0 34px 52px;
+        }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-dot {
+            position: absolute;
+            left: 6px; top: 4px;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 3px solid var(--blue);
+        }
+        .tl-item.alt .tl-dot { border-color: var(--amber); }
+        .tl-time {
+            color: var(--blue-soft);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        .tl-item.alt .tl-time { color: var(--amber); }
+        .tl-item h3 {
+            color: #fff;
+            font-size: 18px;
+            margin: 4px 0 6px;
+        }
+        .tl-item p { color: var(--text-dim); font-size: 15px; max-width: 680px; }
+
+        /* ===== Start track ===== */
+        .track { display: flex; flex-direction: column; gap: 18px; max-width: 820px; }
+        .track-step {
+            display: flex;
+            gap: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 22px 26px;
+            align-items: flex-start;
+            transition: border-color 0.2s;
+        }
+        .track-step:hover { border-color: var(--blue); }
+        .track-num {
+            flex-shrink: 0;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), var(--amber));
+            color: #fff;
+            font-weight: 800;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .track-body h3 { color: #fff; font-size: 18px; margin-bottom: 6px; }
+        .track-body p { color: var(--text-dim); font-size: 15px; }
+
+        /* ===== Interactive quiz ===== */
+        .quiz-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 38px 34px;
+        }
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; }
+        .quiz-step h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .quiz-opt {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 16px 20px;
+            border-radius: 12px;
+            font-size: 15.5px;
+            font-family: inherit;
+            cursor: pointer;
+            margin-bottom: 12px;
+            transition: all 0.2s;
+        }
+        .quiz-opt:hover { border-color: var(--blue); }
+        .quiz-opt.picked { border-color: var(--blue); background: rgba(59,130,246,0.15); }
+        .quiz-progress {
+            height: 6px;
+            background: var(--bg-soft);
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 26px;
+        }
+        .quiz-progress span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--amber);
+            transition: width 0.3s;
+        }
+        .quiz-feedback {
+            min-height: 22px;
+            margin: 6px 0 18px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .quiz-feedback.ok { color: #4ADE80; }
+        .quiz-feedback.no { color: var(--amber); }
+        .quiz-result {
+            text-align: center;
+            display: none;
+        }
+        .quiz-result.active { display: block; }
+        .quiz-result .score {
+            font-size: 54px;
+            font-weight: 800;
+            color: var(--blue);
+        }
+        .quiz-result h3 { color: #fff; font-size: 24px; margin: 8px 0 14px; }
+        .quiz-result p { color: var(--text-dim); max-width: 540px; margin: 0 auto 24px; }
+        .btn {
+            display: inline-block;
+            background: var(--blue);
+            color: #fff;
+            font-weight: 600;
+            padding: 13px 28px;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 15px;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: var(--blue-soft); }
+        .btn.amber { background: var(--amber); }
+        .btn.amber:hover { background: #fb923c; }
+
+        /* ===== Footer ===== */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 48px 0 30px;
+            color: var(--text-dim);
+            font-size: 14px;
+            background: var(--bg-soft);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
+        }
+        .footer-brand p { max-width: 420px; }
+        .footer-brand .quote {
+            margin-top: 10px;
+            font-style: italic;
+            opacity: 0.7;
+            font-size: 13px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-bottom: 14px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 9px; }
+        .footer-col a {
+            color: var(--text-dim);
+            transition: color 0.2s;
+        }
+        .footer-col a:hover { color: var(--blue-soft); }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 22px;
+        }
+        .footer-bottom .amber { color: var(--amber); font-weight: 600; }
+        @media (max-width: 640px) {
+            .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+        footer.flash { animation: flashBg 1.6s ease; }
+        @keyframes flashBg {
+            0%, 100% { background: var(--bg-soft); }
+            30%, 60% { background: rgba(249,115,22,0.18); }
+        }
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--blue);
+            color: #fff;
+            padding: 14px 22px;
+            border-radius: 12px;
+            font-size: 14.5px;
+            font-weight: 600;
+            max-width: 90vw;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 200;
+            text-align: center;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 860px) {
+            .nav-links {
+                position: fixed;
+                top: 72px; left: 0; right: 0;
+                background: var(--bg);
+                flex-direction: column;
+                gap: 0;
+                padding: 0 24px;
+                max-height: 0;
+                overflow: hidden;
+                border-bottom: 1px solid var(--border);
+                transition: max-height 0.3s;
+            }
+            .nav-links.open { max-height: 340px; }
+            .nav-links li { border-bottom: 1px solid var(--border); }
+            .nav-links a { display: block; padding: 16px 0; }
+            .burger { display: flex; }
+            .tasks-grid { grid-template-columns: 1fr 1fr; }
+            .skills-cols.active { grid-template-columns: 1fr; }
+            section { padding: 64px 0; }
+        }
+        @media (max-width: 540px) {
+            .tasks-grid { grid-template-columns: 1fr; }
+            .erth { padding: 32px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== Header ===== -->
+    <header>
+        <div class="container nav">
+            <a href="#hero" class="logo">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="32" cy="32" r="30" fill="#1E293B" stroke="#3B82F6" stroke-width="2"/>
+                    <!-- profile: face -->
+                    <path d="M24 20 C24 14 34 13 38 17 C42 21 41 26 39 30 C43 32 45 37 43 42 C41 47 35 48 32 47 L32 60" stroke="#E2E8F0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- big nose -->
+                    <path d="M39 27 C44 27 46 31 42 33 C40 34 38 32 38 30" stroke="#E2E8F0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- mustache -->
+                    <path d="M30 39 C34 37 38 37 41 39 C39 43 34 43 31 41 Z" fill="#F97316" stroke="#F97316" stroke-width="1"/>
+                    <!-- eye -->
+                    <circle cx="35" cy="24" r="1.6" fill="#3B82F6"/>
+                    <!-- radio waves -->
+                    <path d="M50 26 C53 29 53 35 50 38" stroke="#3B82F6" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M52 22 C57 27 57 37 52 42" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+                </svg>
+                <span class="logo-text">
+                    <strong>Фрунзик Мкртчян</strong>
+                    <span>Справочник радиоинженера</span>
+                </span>
+            </a>
+            <button class="burger" id="burger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#who">Кто это</a></li>
+                <li><a href="#tasks">Задачи</a></li>
+                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#career">Карьера</a></li>
+                <li><a href="#day">День из жизни</a></li>
+                <li><a href="#start">Старт</a></li>
+                <li><a href="#interactive">Интерактив</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <span class="eyebrow">Цифровой портрет профессии</span>
+            <h1>Сервисный инженер <span class="accent">радиосети</span></h1>
+            <p class="sub">Узнай, как управлять невидимыми волнами, которые связывают мир. Никакой магии — только физика, приборы и пара километров кабеля.</p>
+
+            <div class="hero-quote">
+                <span class="q-mark">«</span>
+                <p>Слушай, когда связи нет — все плачут. Когда связь есть — никто инженера не замечает. Обидно, да? Давай исправим это!</p>
+                <div class="by">— Фрунзик Мкртчян, голос радиоинженеров</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Who ===== -->
+    <section class="who" id="who">
+        <div class="container">
+            <div class="sec-head">
+                <span class="eyebrow">Кто это простыми словами</span>
+                <h2>Человек со спасательным чемоданом</h2>
+            </div>
+            <p>
+                Это айтишник со спасательным чемоданом. Человек, который делает так, чтобы в твоем телефоне всегда горели палочки LTE, поезда МЦД не сталкивались, а спасатели МЧС слышали друг друга в горах. Он настраивает <span class="hl">сложные базовые станции</span> и чинит их, если что-то пошло не так.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== Tasks ===== -->
+    <section class="tasks" id="tasks">
+        <div class="container">
+            <div class="sec-head">
+                <span class="eyebrow">Чем занят</span>
+                <h2>6 задач из реальной жизни</h2>
+            </div>
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                    </div>
+                    <h3>Охота за помехами</h3>
+                    <p>Поиск чужих сигналов, которые глушат сеть, с помощью анализатора спектра.</p>
+                </div>
+                <div class="task-card">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 11-12h-7l1-8z"/></svg>
+                    </div>
+                    <h3>Оживление базовых станций</h3>
+                    <p>Запуск нового оборудования сотовой связи «с нуля».</p>
+                </div>
+                <div class="task-card">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="8"/></svg>
+                    </div>
+                    <h3>Юстировка антенн</h3>
+                    <p>Наведение радиорелейных тарелок друг на друга с точностью до миллиметра.</p>
+                </div>
+                <div class="task-card">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+                    </div>
+                    <h3>Аварийный рейс</h3>
+                    <p>Выезд на объект в грозу или снегопад, чтобы заменить сгоревший блок и поднять связь.</p>
+                </div>
+                <div class="task-card">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m8 7 4-4 4 4"/><rect x="4" y="15" width="16" height="6" rx="2"/></svg>
+                    </div>
+                    <h3>Обновление «мозгов»</h3>
+                    <p>Удаленная прошивка и настройка ПО маршрутизаторов и контроллеров.</p>
+                </div>
+                <div class="task-card">
+                    <div class="task-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M7 7v10M12 4v16M17 8v8"/></svg>
+                    </div>
+                    <h3>Проверка здоровья сети</h3>
+                    <p>Измерение КСВ и качества сигнала, чтобы связь не обрывалась.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="sec-head">
+                <span class="eyebrow">Что в кармашке</span>
+                <h2>Hard Skills &amp; Soft Skills</h2>
+            </div>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="hard">Hard Skills</button>
+                <button class="tab-btn amber" data-tab="soft">Soft Skills</button>
+            </div>
+            <div class="skills-cols active" id="col-hard">
+                <div class="skill-list hard">
+                    <h3>Технические навыки</h3>
+                    <ul>
+                        <li>Знание стандартов: DMR, TETRA, LTE, 5G</li>
+                        <li>Работа с приборами: Anritsu, Rohde &amp; Schwarz</li>
+                        <li>Базовый Linux и командная строка</li>
+                        <li>Сетевые протоколы: TCP/IP, маршрутизация</li>
+                        <li>Понимание радиофизики и антенн</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="skills-cols" id="col-soft">
+                <div class="skill-list soft">
+                    <h3>Личные качества</h3>
+                    <ul>
+                        <li>Стрессоустойчивость — когда упала сеть завода</li>
+                        <li>Аналитическое мышление — найти баг в сотнях проводов</li>
+                        <li>Физическая выносливость — иногда надо подняться на вышку</li>
+                        <li>Ответственность — от тебя зависит SLA 24/7</li>
+                        <li>Командная работа с коллегами и заказчиком</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Career / ERTH ===== -->
+    <section class="career" id="career">
+        <div class="container">
+            <div class="sec-head">
+                <span class="eyebrow">Где работать</span>
+                <h2>Почему роль важна для ЭР-Телеком</h2>
+            </div>
+            <div class="erth">
+                <span class="badge">ЭР-Телеком Холдинг</span>
+                <h2>ЭРТХ строит масштабные беспроводные сети для <span class="hl">заводов</span>, городов (<span class="hl">Smart City</span>) и интернета вещей (<span class="hl">IoT</span>). Сервисный инженер в ЭРТХ — это гарант того, что критически важные сервисы бизнеса и миллионов людей будут работать 24/7 без сбоев.</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Day ===== -->
+    <section class="day" id="day">
+        <div class="container">
+            <div class="sec-head">
+                <span class="eyebrow">Изнутри</span>
+                <h2>Один день из жизни</h2>
+            </div>
+            <div class="timeline">
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-time">09:00</div>
+                    <h3>Кофе и мониторинг</h3>
+                    <p>Просмотр дашбордов. Обнаружен упавший пролет РРЛ в области.</p>
+                </div>
+                <div class="tl-item alt">
+                    <span class="tl-dot"></span>
+                    <div class="tl-time">11:00</div>
+                    <h3>Сбор снаряжения</h3>
+                    <p>Проверка приборов, укладка чемодана, выезд на объект на служебном авто.</p>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-time">13:00</div>
+                    <h3>Работа в поле</h3>
+                    <p>Подъём на мачту, замена радиомодуля, юстировка антенн.</p>
+                </div>
+                <div class="tl-item alt">
+                    <span class="tl-dot"></span>
+                    <div class="tl-time">16:00</div>
+                    <h3>Тесты и победа</h3>
+                    <p>Сеть поднята, скорость в норме, SLA выполнен.</p>
+                </div>
+                <div class="tl-item">
+                    <span class="tl-dot"></span>
+                    <div class="tl-time">18:00</div>
+                    <h3>Отчёт и сдача смены</h3>
+                    <p>Заполнение отчёта в системе, передача смены. День спасён.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Start / Career track ===== -->
+    <section class="start" id="start">
+        <div class="container">
+            <div class="sec-head">
+                <span class="eyebrow">Пошаговый трек</span>
+                <h2>Как начать карьеру студенту</h2>
+            </div>
+            <div class="track">
+                <div class="track-step">
+                    <div class="track-num">1</div>
+                    <div class="track-body">
+                        <h3>Не прогуливай лабораторные</h3>
+                        <p>Физика и ТОЭ — это фундамент. Без них радиоволны останутся магией, а не инструментом.</p>
+                    </div>
+                </div>
+                <div class="track-step">
+                    <div class="track-num">2</div>
+                    <div class="track-body">
+                        <h3>Изучи основы сетей</h3>
+                        <p>Пройди курсы Cisco CCNA или их аналоги. Пойми, как работают TCP/IP и маршрутизация.</p>
+                    </div>
+                </div>
+                <div class="track-step">
+                    <div class="track-num">3</div>
+                    <div class="track-body">
+                        <h3>Стажировка в ЭРТХ</h3>
+                        <p>Поступи на практику или стажировку в ЭР-Телеком Холдинг — у них есть программа для студентов.</p>
+                    </div>
+                </div>
+                <div class="track-step">
+                    <div class="track-num">4</div>
+                    <div class="track-body">
+                        <h3>Первый шаг в профессию</h3>
+                        <p>Начни с позиции техника или младшего инженера техподдержки. Дальше — только вверх.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Interactive ===== -->
+    <section class="interactive" id="interactive">
+        <div class="container">
+            <div class="sec-head">
+                <span class="eyebrow">Проверь себя</span>
+                <h2>Твоя судьба — радиоинженер?</h2>
+            </div>
+            <div class="quiz-card">
+                <div class="quiz-progress"><span id="quizBar"></span></div>
+                <div id="quizSteps"></div>
+                <div class="quiz-feedback" id="quizFeedback"></div>
+                <div class="quiz-result" id="quizResult">
+                    <div class="score" id="quizScore">0/3</div>
+                    <h3 id="quizTitle">Результат</h3>
+                    <p id="quizText">Описание</p>
+                    <button class="btn amber" onclick="applyInternship()">Хочу на стажировку!</button>
+                    <button class="btn" style="margin-left:10px" onclick="quizRestart()">Пройти ещё раз</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer id="contacts">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p><span class="amber">Фрунзик Мкртчян</span> | Справочник радиоинженера — для первокурсников технических вузов.</p>
+                    <p class="quote">«Я тебе один умный вещь скажу, только ты не обижайся: без радиосети твой айфон — просто кирпич».</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Разделы</h4>
+                    <ul>
+                        <li><a href="#who">Кто это</a></li>
+                        <li><a href="#tasks">Задачи</a></li>
+                        <li><a href="#skills">Навыки</a></li>
+                        <li><a href="#start">Старт карьеры</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul>
+                        <li>Телеграм: <a href="https://t.me/Ryan_Gosling2013">@Ryan_Gosling2013</a></li>
+                        <li>Телефон: <a href="tel:89522066282">8 (952) 206-62-82</a></li>
+                        <li><a href="#interactive">Пройти тест</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 <span class="amber">Фрунзик Мкртчян Lab</span>. Все радиоволны защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Burger menu
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
+        burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+        // Skills tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                document.querySelectorAll('.skills-cols').forEach(c => c.classList.remove('active'));
+                document.getElementById('col-' + btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Quiz — 3 вопроса «Подходишь ли ты радиосети?»
+        const questions = [
+            { q: "Что ты сделаешь, если пропал сигнал?",
+              a: ["Поплачу", "Возьму анализатор спектра и проверю КСВ"],
+              good: 1 },
+            { q: "Что важнее при юстировке антенн?",
+              a: ["Угадать на глаз", "Навести тарелки друг на друга с точностью до миллиметра"],
+              good: 1 },
+            { q: "Куда лучше податься после первого курса?",
+              a: ["Спать до обеда", "На стажировку в ЭРТХ к радиоинженерам"],
+              good: 1 }
+        ];
+        let qi = 0, score = 0;
+        const stepsEl = document.getElementById('quizSteps');
+        const feedbackEl = document.getElementById('quizFeedback');
+        const bar = document.getElementById('quizBar');
+
+        function renderQuestion() {
+            if (qi >= questions.length) return finishQuiz();
+            bar.style.width = (qi / questions.length * 100) + '%';
+            feedbackEl.textContent = '';
+            const item = questions[qi];
+            stepsEl.innerHTML = `
+                <div class="quiz-step active">
+                    <h3>${qi + 1}. ${item.q}</h3>
+                    ${item.a.map((opt, i) =>
+                        `<button class="quiz-opt" data-i="${i}"><b>${String.fromCharCode(65 + i)}.</b> ${opt}</button>`
+                    ).join('')}
+                </div>`;
+            stepsEl.querySelectorAll('.quiz-opt').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    stepsEl.querySelectorAll('.quiz-opt').forEach(b => b.disabled = true);
+                    btn.classList.add('picked');
+                    if (+btn.dataset.i === item.good) {
+                        score++;
+                        feedbackEl.textContent = 'Отлично! Фрунзик одобряет';
+                        feedbackEl.className = 'quiz-feedback ok';
+                    } else {
+                        feedbackEl.textContent = 'Не совсем... Фрунзик бы так не сделал. Но попытка засчитана!';
+                        feedbackEl.className = 'quiz-feedback no';
+                    }
+                    setTimeout(() => { qi++; renderQuestion(); }, 1100);
+                });
+            });
+        }
+
+        function finishQuiz() {
+            bar.style.width = '100%';
+            stepsEl.innerHTML = '';
+            feedbackEl.textContent = '';
+            document.getElementById('quizScore').textContent = score + '/' + questions.length;
+            let title, text;
+            if (score === 3) {
+                title = "Ты — радиопризвание!";
+                text = "Все ответы верные. Фрунзик гордится: перед тобой открыта дорога в ЭРТХ.";
+            } else if (score >= 1) {
+                title = "Есть потенциал";
+                text = "Половина пути пройдена. Доучи физику и приборы — и будешь в деле.";
+            } else {
+                title = "Пока рано";
+                text = "Радиосеть — не про тебя (пока). Но теперь ты знаешь, кто поднимает связь, когда все плачут.";
+            }
+            document.getElementById('quizTitle').textContent = title;
+            document.getElementById('quizText').textContent = text;
+            document.getElementById('quizResult').classList.add('active');
+        }
+
+        function quizRestart() {
+            qi = 0; score = 0;
+            document.getElementById('quizResult').classList.remove('active');
+            renderQuestion();
+        }
+
+        function applyInternship() {
+            const contacts = document.getElementById('contacts');
+            contacts.scrollIntoView({ behavior: 'smooth' });
+            contacts.classList.add('flash');
+            setTimeout(() => contacts.classList.remove('flash'), 1600);
+            showToast('Заявка принята! Пиши @Ryan_Gosling2013 или звони 8 (952) 206-62-82');
+        }
+
+        function showToast(msg) {
+            let t = document.getElementById('toast');
+            if (!t) {
+                t = document.createElement('div');
+                t.id = 'toast';
+                t.className = 'toast';
+                document.body.appendChild(t);
+            }
+            t.textContent = msg;
+            t.classList.add('show');
+            clearTimeout(t._timer);
+            t._timer = setTimeout(() => t.classList.remove('show'), 4000);
+        }
+
+        renderQuestion();
+    </script>
+</body>
+</html>
